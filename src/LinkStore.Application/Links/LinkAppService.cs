@@ -1,4 +1,5 @@
 ﻿using System;
+using LinkStore.Permissions;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Volo.Abp;
@@ -21,6 +22,12 @@ public class LinkAppService :
     public LinkAppService(IRepository<Link, Guid> repository)
         : base(repository)
     {
+        GetPolicyName = LinkStorePermissions.Links.Default;
+        GetListPolicyName = LinkStorePermissions.Links.Default;
+        CreatePolicyName = LinkStorePermissions.Links.Create;
+        CreatePolicyName = LinkStorePermissions.Links.Redirect;
+        //UpdatePolicyName = LinkStorePermissions.Links.Edit;
+        //DeletePolicyName = LinkStorePermissions.Links.Delete;
 
     }
 

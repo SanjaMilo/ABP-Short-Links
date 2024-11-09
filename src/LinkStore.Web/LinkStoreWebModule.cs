@@ -147,6 +147,14 @@ public class LinkStoreWebModule : AbpModule
         {
             options.IsDynamicPermissionStoreEnabled = true;
         });
+
+        // Ovde:
+        Configure<RazorPagesOptions>(options =>
+        {
+            options.Conventions.AuthorizePage("/Links/Index", LinkStorePermissions.Links.Default);
+            options.Conventions.AuthorizePage("/Books/CreateModal", LinkStorePermissions.Links.Create);
+            options.Conventions.AuthorizePage("/Books/RedirectModal", LinkStorePermissions.Links.Redirect);
+        });
     }
 
 
