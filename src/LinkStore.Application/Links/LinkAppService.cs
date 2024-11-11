@@ -88,7 +88,7 @@ public class LinkAppService :
     }
 
     // Get original link from short link
-    public async Task<string> GetOriginalAsync(string shortLinkId)
+    public async Task<string> PostOriginalAsync(string shortLinkId)
     {
         var link = await Repository.FirstOrDefaultAsync(l => l.IdPart == shortLinkId);
 
